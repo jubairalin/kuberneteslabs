@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: indiapod
+spec:
+   containers:
+     - name: myindianginx1
+       image: nginx:latest

@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jbosspod
+  labels:
+    name: jbosspod
+    env: prod
+spec:
+  containers:
+  - name: javawebserver
+    image: tutum/jboss
+    ports:
+    - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jbossservice
+spec:
+  ports:
+  - port: 8081
+    targetPort: 8080
+  selector:
+    env: prod

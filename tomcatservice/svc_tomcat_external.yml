@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomcatservice2
+  labels:
+    name: tomcat
+spec:
+  externalIPs:
+    - 192.168.198.132
+  ports:
+    - port: 8080
+  selector:
+    name: tomcat

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynginxpod
+spec:
+   containers:
+    - name: wsserver
+      image: nginx
+      ports:
+      - containerPort: 80
+      volumeMounts:
+      - name : nginx-persistent-storage
+        mountPath : /usr/share/nginx/html
+   volumes:
+   - name: nginx-persistent-storage
+     persistentVolumeClaim:
+       claimName: myhostpath-pvc1

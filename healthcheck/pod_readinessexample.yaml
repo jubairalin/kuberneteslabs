@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podwithreadiness
+spec:
+  containers:
+  - name: podwithreadiness
+    image: mhausenblas/simpleservice:0.5.0
+    ports:
+    - containerPort: 9876
+    readinessProbe:
+      initialDelaySeconds: 10
+      httpGet:
+        path: /health
+        port: 9876

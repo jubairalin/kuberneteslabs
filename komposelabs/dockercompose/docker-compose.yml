@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+    webservers:
+       image: nginx
+       ports:
+       - 9090:80/tcp
+   
+    appservers:
+       image: bitnami/tomcat
+       ports:
+       - 8082:8080
+       volumes:
+       - /opt/kubelabs/komposelabs/dockercompose/supermarket.war:/usr/local/tomcat/webapps/supermarket.war
+                 
+   
+
+    
